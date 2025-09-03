@@ -1,148 +1,145 @@
 <!DOCTYPE html>
+
 <html>
 <head>
-  <title>ProjectDappsMainNet</title>
+  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calanda Bio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
   <style>
-  header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    background-color: #1a1a1a;
-    border-bottom: 1px solid #333;
+  .header-container {
+    display:flex;
+    justify-content:space-between;
+    border:1px solid #A1BD9C;
+    border-radius:50px;
+    background-filter:blur(10px);
+    width:350px;
+    text-align:center;
+    margin-left:50px
   }
-  header button {
+  header img {
+    width:30%
+  }
+  body h1 {
+    font-weight:800;
+    font-size:2.0em;
+    margin-top:40px;
+    color:rgba(59, 70, 49, 1);
+    margin-right:20px
+  }
+  body{
+    background-color:rgba(235, 234, 229,1);
+    font-family:'lato', sans-serif;
+    margin:0;
+    padding:0;
+  }
+  .hero{
+    display:inline;
+    justify-content:center;
     border:none;
-    background: linear-gradient(45deg, #7e22ce, #9333ea);
-    border-radius:20px;
-    padding:10px 20px;
-    font-weight:bold;
+    width:350px;
+    font-size:3.4em;
+    text-align:center;
+    color:rgba(59, 70, 49, 1)
   }
-  body {
-    background-color:#1a1a1a;
-    color: white;
-    font-family:Roboto, sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  .hero-section {
-   display:inline;
+  .section1 {
+    display:inline;
     justify-content:center;
     text-align:center;
-    padding:50px 20px;
-    max-width:800px;
+    color:rgba(59, 70, 49, 1);
+    
   }
-  .hero-section h1{
-    font-size:3em;
+  .pad{
+    display:flex;
+    justify-content:space-evenly
+  }
+  .pad1 {
+    border:1px solid #A1BD9C;
+    border-radius:20px;
+    width:150px;
+    text-align:center;
+    margin-bottom:20px;
+  }
+  .pad2{
+    border:1px solid #A1BD9C;
+    border-radius:20px;
+    width:150px;
+    text-align:center;
+    margin-bottom:20px;
+  }
+  .section2.1{
+  
+  }
+  .section2{
+  display: block; /* Change from 'inline' to 'block' */
+  justify-content: center;
+  border: 1px solid #A1BD9C;
+  width: 100%;
+  font-size: 3.4em;
+  text-align: center;
+  color: rgba(59, 70, 49, 1);
+  background-color: rgba(161, 189, 156, 1);
+}
+  .indus {
+    font-size:0.5em;
     font-weight:800;
   }
-  .hero-section p{
-    color: #a0a0a0;
-    line-height: 1.6;
+  .small {
+    font-size:0.4em;
+    font-weight:300;
+    margin-top:50px
   }
-  .sync-button {
-    border:none;
-    padding:20px 10px;
-    border-radius:20px;
-    background:linear-gradient(45deg, #7e22ce, #9333ea);
-    font-weight:bold;
-    font-size:1.1em;
-    color:white;
-    margin-top:20px;
-    margin-left:120px
-  }
-  img {
-    width:70%;
-    border:none;
-    border-radius:20px;
-  }
-  .image-container {
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    margin-top:20px;
-    background-filter:blur(10px);
-    padding:20px;
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 20px;
-    width:250px;
-    margin-left:70px
-  }
-  body h2 {
-    text-align:center;
-    font-size:2.0em
-  }
-  .migration {
-    border:1px solid rgba(255, 255, 255,0.1);
-    border-radius:20px;
-    width:350px;
-    background-color:rgba(255, 255, 255, 0.05);
-    margin-left:30px;
-    text-align:center;
-  }
-  .migration p{
-    font-size:1.1em
-  }
-  .migration h4{
-    font-size:1.5em
-  }
-  .claim {
-    border:1px solid rgba(255, 255, 255,0.1);
-    border-radius:20px;
-    width:350px;
-    background-color:rgba(255, 255, 255, 0.05);
-    margin-left:30px;
-    text-align:center;
-    margin-top:20px;
-  }
-  .claim p{
-    font-size:1.1em
-  }
-  .claim h4{
-    font-size:1.5em
-  }
-  body a{
-    text-decoration:none;
-    color:white;
+  .big {
+    font-size:1.0em;
+    font-weight:1200
   }
   </style>
 </head>
 <body>
   <header>
-    <a href="connect.html">
-    <div>
-      <button>connect</button>
+    <div class="header-container">
+      <img src="https://i.imgur.com/VM8mROG.png">
+      <h1>Calanda</h1>
     </div>
-      </a>
   </header>
-  <div class="hero-section">
-  <h1>ProjectDappsMainNet</h1>
-  <p>It is not an app, but a decentralized and open protocol. This protocol allows syncing of different Wallets issues on a Secure Server, creating a remote resolution between noncustodial wallets.</p>
-  <p>It is an online server which gets you across to every wallet representative to enable effective complain and rectification of issues.</p>
-  <p>In our system, we leverage a robust protocol that facilitates seamless remote communication and resolution among all noncustodial wallets.</p>
+  <div class="hero">
+    <p>Pushing the boundaries of bioengineers</p>
   </div>
-  <a href="connect.html">
-  <button class="sync-button">Synchronize Wallet</button>
-  </a>
-  <div class="image-container">
-  <img src="https://i.imgur.com/ZSrUZQp.png">
+  <div style="padding-top:56.25%; position:relative; width:100%; height:0;">
+  <iframe 
+    src="https://player.vimeo.com/video/1115388092?autoplay=1&muted=1&loop=1&background=1" 
+    frameborder="0" 
+    allow="autoplay; fullscreen; picture-in-picture" 
+    style="position:absolute; top:0; left:0; width:90%; height:100%; border-radius:50px; margin-left:20px" 
+    title="Looping Video">
+  </iframe>
+</div>
+  <div class="section1">
+    <p>Enabling the next generation of bioprocessing. Caladan combines everything you need—integrated hardware, intuitive software, and advanced automation—into one streamlined platform. It's a new class of bioprocessing technology that's simpler, smarter, and ready to help you push your process forward.</p>
   </div>
-  <h2>Select Your Action Below</h2>
-  <a href="connect.html">
-  <div class="migration">
-    <h3>#</h3>
-    <h4>Migration</h4>
-    <p>Click here for migration</p>
+  <div class="pad">
+  <div class="pad1">
+    <p>LEARN MORE</p>
   </div>
-  </a>
-  <a href="connect.html">
-  <div class="claim">
-    <h3>#</h3>
-    <h4>Claim</h4>
-    <p>Click here to claim assets</p>
+    <div class="pad2">
+    <p>SCHEDULE A MEETING</p>
   </div>
-  </a>
+  </div>
+    <div class="section2">
+      <div class="section2.1">
+        <p>Where our technology is making impact</p>
+    </div>
+      <div class="indus">
+        <h3>Industrial Biology Leaders</h3>
+    </div>
+      <div class="small">
+        <p>Including customers like:</p>
+      </div>
+      <div class="big">
+        <h3>novonesis</h3>
+      </div>
+      </div>
 </body>
 </html>
