@@ -157,7 +157,14 @@
         
         async function initializeFirebase() {
             try {
-                // setLogLevel('debug'); // Use for debugging, uncomment if needed
+                setLogLevel('debug');
+                
+                // *** FIX: Validate that the configuration is actually present before initializing ***
+                if (Object.keys(firebaseConfig).length === 0 || !firebaseConfig.projectId) {
+                    throw new Error("Missing Firebase configuration. Cannot initialize app without environment variables.");
+                }
+                // *********************************************************************************
+
                 const app = initializeApp(firebaseConfig);
                 db = getFirestore(app);
                 auth = getAuth(app);
@@ -186,12 +193,18 @@
 
             } catch (error) {
                 console.error("Firebase initialization or authentication failed:", error);
+                
+                // Detailed error reporting for CRITICAL failures
+                const errorMessage = error.message.includes("Missing Firebase configuration") 
+                    ? "CRITICAL: Missing Firebase Config. Cannot initialize." 
+                    : "CRITICAL: Authentication failed. Check console for details.";
+
                 statusEl.className = 'text-sm font-medium p-2 rounded-lg text-center transition duration-300 bg-red-100 text-red-700';
-                statusEl.textContent = 'CRITICAL ERROR: Failed to connect to database.';
+                statusEl.textContent = errorMessage;
             }
         }
 
-        // --- Messaging Logic ---
+        // --- Messaging Logic (Unchanged) ---
 
         function getMessageCollection(targetId) {
             // Public collection path: /artifacts/{appId}/public/data/connections/{targetId}/messages
@@ -205,6 +218,10 @@
          * @param {string} targetId - The ID of the device to connect to.
          */
         function startPairing(targetId) {
+            if (!db) {
+                updateStatus('Database not initialized. Check connection status.', 'bg-red-100 text-red-700');
+                return;
+            }
             if (unsubscribeMessageListener) {
                 unsubscribeMessageListener(); // Stop listening to the previous channel
             }
