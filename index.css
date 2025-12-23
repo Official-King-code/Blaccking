@@ -46,7 +46,7 @@ nav{
     width: 50%;
     margin: auto;
     padding: 10px;
-    height: 150px;
+    height: auto;
     margin-top: 20px;
 }
 .service2 {
@@ -59,7 +59,7 @@ nav{
     margin: auto;
     margin-top: 20px;
     padding: 10px;
-    height: 150px;
+    height: auto;
 }
 .service3 {
     border: 2px solid lightgray ;
@@ -71,7 +71,7 @@ nav{
     margin: auto;
     margin-top: 20px;
     padding: 10px;
-    height: 150px;
+    height: auto;
 }
 .servicea:hover {
     background-color: darkcyan;
