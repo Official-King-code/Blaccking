@@ -1,81 +1,450 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EnergyNex - Global Energy & Talent Nexus</title>
+  <meta name="description" content="Connecting talent with opportunities in global energy, oil, stocks, news, and jobs."/>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet"/>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+            orbitron: ['Orbitron', 'sans-serif'],
+          },
+          colors: {
+            'energy-blue': '#0ea5e9',
+            'energy-glow': '#38bdf8',
+            'dark-bg': '#0a0e17',
+            'card-bg': 'rgba(15, 23, 42, 0.7)',
+          },
+          animation: {
+            'glow-pulse': 'glowPulse 4s ease-in-out infinite',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            glowPulse: {
+              '0%, 100%': { boxShadow: '0 0 20px rgba(14, 165, 233, 0.3)' },
+              '50%': { boxShadow: '0 0 40px rgba(14, 165, 233, 0.6)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-15px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <style>
+    body {
+      background: linear-gradient(to bottom, #0a0e17, #111827);
+      color: #e2e8f0;
+      overflow-x: hidden;
+    }
+    .map-bg {
+      position: fixed;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      opacity: 0.1;
+      z-index: -2;
+      filter: brightness(0.5) grayscale(0.5);
+    }
+    .glass-card {
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(56, 189, 248, 0.1);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .glass-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px -10px rgba(14, 165, 233, 0.3);
+      border-color: rgba(56, 189, 248, 0.4);
+    }
+    .glow-text {
+      text-shadow: 0 0 15px rgba(14, 165, 233, 0.6);
+    }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0a0e17; }
+    ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
+    ::-webkit-scrollbar-thumb:hover { background: #38bdf8; }
+  </style>
 </head>
-<body>
-    <header>
-        <h1 id="head1">OBJ</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">HOME</a></li>
-                <li><a href="#about">ABOUT</a></li>
-                <li><a href="#services">SERVICES</a></li>
-                <li><a href="#resume">RESUME</a></li>
-                <li><a href="#contact">CONTACT</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-    <section class="section1" id="home">
-        <div class="section1-content" id="about">
-        <h3>WELCOME TO MY SPACE</h3>
-        <h1>Hi, I'm<span class="my-name"> Boluwatife Joshua an Analytical Strategist.</span></h1>
-        <p>
-            I am a Web Developer and Mathematician driven by the belief that great digital experiences are built on a foundation of rigorous logic. My background in mathematics allows me to approach coding challenges with a unique analytical lens, turning complex requirements into clean, scalable, and efficient code.
-            Whether I’m architecting a database or fine-tuning a user interface, I focus on precision and performance. I don’t just build websites; I solve puzzles to create seamless digital solutions.</p>
-            </div>
-            <div class="hero-image">
-            <img src="https://i.imgur.com/crisbIm.jpeg" alt="1001379397" border="0">
-            </div>
-    </section>
-    <section id="services">
-        <h3>What I Do</h3>
-        <div class="services-container">
-            <div class="service-box1">
-                <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
-               <h4>Business Strategy</h4>
-               <p>I bridge the gap between complex data and actionable growth. By leveraging my mathematical background, I develop business strategies rooted in rigorous logic and predictive modeling. I focus on optimizing workflows, identifying market inefficiencies, and creating scalable roadmaps that turn abstract goals into measurable success.</p>
-            </div>
-            <div class="service-box2">
-                <i class="fa-solid fa-laptop-code" aria-hidden="true"></i>
-                <h4>Web Development</h4>
-                <p>I build responsive, user-friendly websites and applications using modern technologies. My approach combines clean, semantic HTML, efficient CSS styling, and robust JavaScript functionality to deliver seamless digital experiences.</p>
-            </div>
-            <div class="service-box3">
-                <i class="fa-solid fa-database" aria-hidden="true"></i>
-                <h4>Data Analysis</h4>
-                <p>I analyze complex datasets to extract meaningful insights that drive informed decision-making. Utilizing statistical methods and data visualization techniques, I transform raw data into clear, actionable information that supports business objectives.</p>
+<body class="min-h-screen relative">
+
+  <div class="map-bg"></div>
+
+  <nav class="fixed top-0 w-full z-50 bg-black/60 backdrop-blur-md border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 bg-energy-blue rounded-lg rotate-45 flex items-center justify-center">
+            <div class="w-4 h-4 bg-white rounded-full"></div>
         </div>
-            <div class="service-box4">
-                <i class="fa-solid fa-chart-pie" aria-hidden="true"></i>
-                <h4>Statistical Modeling</h4>
-                <p>I develop and implement statistical models to solve real-world problems. By applying mathematical theories and computational techniques, I create predictive models that help businesses forecast trends, optimize operations, and enhance decision-making processes.</p>
-        </div>
-    </section>
-    <section class="download" id="resume">
-        <h4>DOWNLOAD RESUME</h4>
-        <a href="Boluwatife_Joshua_Resume.pdf" download>
-            <button>Download CV</button>
+        <span class="text-2xl font-orbitron font-bold text-white tracking-tighter">ENERGY<span class="text-energy-glow">NEX</span></span>
+      </div>
+      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
+        <a href="news.html" class="hover:text-energy-glow transition-colors">News</a>
+        <a href="market.html" class="hover:text-energy-glow transition-colors">Markets</a>
+        <a href="career.html" class="hover:text-energy-glow transition-colors">Careers</a>
+        <button class="bg-white/5 hover:bg-white/10 text-white px-5 py-2 rounded-full border border-white/10 transition">Log In</button>
+        <button class="bg-energy-blue hover:bg-sky-400 text-dark-bg px-6 py-2 rounded-full font-bold transition">Join Now</button>
+      </div>
+    </div>
+  </nav>
+
+  <section class="pt-48 pb-20 px-6 text-center">
+    <div class="max-w-4xl mx-auto" data-aos="zoom-out">
+      <span class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-energy-glow uppercase border border-energy-glow/30 rounded-full bg-energy-glow/5">
+        The Future of Energy Intelligence
+      </span>
+      <h1 class="text-6xl md:text-8xl font-orbitron font-extrabold mb-8 leading-none tracking-tight animate-float">
+        Powering <span class="text-energy-glow glow-text">Careers</span><br/>In Energy
+      </h1>
+      <p class="text-lg md:text-xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+        The only nexus connecting high-frequency market data with premium opportunities in the global energy sector.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#markets" class="bg-energy-blue text-dark-bg text-lg font-bold px-10 py-4 rounded-full shadow-lg shadow-energy-blue/20 hover:scale-105 transition-transform">
+          View Live Markets
         </a>
-    </section>
-    <section class="finale" id="finale">
-        <h4>FIND ME ON</h4>
-        <div class="social-links" id="contact">
-            <a href="mailto:boluwatifejoshua@gmail.com"><i class="fa fa-envelope" aria-hidden="true"></i></a>
-            <a href="https://wa.me/+2348061923222"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i></a>
-            <a href="https://github.com/Official-King-code/Blaccking"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
-            <a href="https://www.linkedin.com/in/boluwatife-joshua-2b4b3221b/"><i class="fa-brands fa-linkedin" aria-hidden="true"></i></a>
+        <a href="#" class="bg-white/5 backdrop-blur-md text-white border border-white/10 text-lg font-bold px-10 py-4 rounded-full hover:bg-white/10 transition">
+          Find A Job
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="markets" class="py-12 px-6">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div class="glass-card p-6 rounded-2xl" data-aos="fade-up">
+        <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">WTI Crude Oil</p>
+        <div class="flex items-end gap-2">
+            <span id="oil-price" class="text-3xl font-orbitron font-bold text-white">$78.42</span>
+            <span class="text-green-500 text-sm font-medium mb-1">▲ 1.4%</span>
         </div>
-    </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 Boluwatife Joshua. All rights reserved.</p>
-    </footer>
-     <script src="index.js"></script>
+      </div>
+      <div class="glass-card p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+        <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">Brent Crude</p>
+        <div class="flex items-end gap-2">
+            <span class="text-3xl font-orbitron font-bold text-white">$82.15</span>
+            <span class="text-green-500 text-sm font-medium mb-1">▲ 0.8%</span>
+        </div>
+      </div>
+      <div class="glass-card p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+        <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">Natural Gas</p>
+        <div class="flex items-end gap-2">
+            <span id="gas-price" class="text-3xl font-orbitron font-bold text-white">$3.15</span>
+            <span class="text-red-500 text-sm font-medium mb-1">▼ 0.2%</span>
+        </div>
+      </div>
+      <div class="glass-card p-6 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
+        <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mb-1">Global Hires</p>
+        <div class="flex items-end gap-2">
+            <span class="text-3xl font-orbitron font-bold text-energy-glow">+12.4k</span>
+            <span class="text-gray-500 text-sm mb-1">this month</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-24 px-6">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-3 gap-12">
+      
+      <div class="lg:col-span-2 space-y-8" data-aos="fade-right">
+        <div class="flex justify-between items-center border-b border-white/10 pb-4">
+            <h2 class="text-3xl font-orbitron font-bold">Market <span class="text-energy-glow">Intelligence</span></h2>
+            <a href="#" class="text-sm text-energy-glow hover:underline">View All News</a>
+        </div>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="glass-card p-6 rounded-2xl">
+                <div class="h-40 bg-gray-800 rounded-xl mb-4 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600" class="w-full h-full object-cover opacity-60 hover:scale-110 transition-transform duration-700" alt="News">
+                </div>
+                <span class="text-energy-glow text-xs font-bold uppercase">Upstream</span>
+                <h3 class="text-xl font-bold mt-2 mb-3 leading-snug">New Offshore Discoveries in Guyana Basin</h3>
+                <p class="text-gray-400 text-sm mb-4">Exploration teams report significant findings in the Stabroek Block...</p>
+                <button class="text-white text-sm font-bold border-b border-energy-glow">Read Full Report</button>
+            </div>
+            <div class="glass-card p-6 rounded-2xl">
+                <div class="h-40 bg-gray-800 rounded-xl mb-4 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=600" class="w-full h-full object-cover opacity-60 hover:scale-110 transition-transform duration-700" alt="News">
+                </div>
+                <span class="text-energy-glow text-xs font-bold uppercase">Renewables</span>
+                <h3 class="text-xl font-bold mt-2 mb-3 leading-snug">Solar Infrastructure Surges 40% in Q1</h3>
+                <p class="text-gray-400 text-sm mb-4">A record-breaking quarter for grid integration across the EU...</p>
+                <button class="text-white text-sm font-bold border-b border-energy-glow">Read Full Report</button>
+            </div>
+        </div>
+      </div>
+
+      <div class="space-y-8" data-aos="fade-left">
+        <div class="flex justify-between items-center border-b border-white/10 pb-4">
+            <h2 class="text-3xl font-orbitron font-bold text-white">Top <span class="text-energy-glow">Roles</span></h2>
+        </div>
+        <div class="space-y-4">
+            <div class="glass-card p-5 rounded-xl flex items-start gap-4">
+                <div class="w-12 h-12 bg-white/10 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-energy-glow">BP</div>
+                <div>
+                    <h4 class="font-bold">Lead Data Scientist</h4>
+                    <p class="text-xs text-gray-500">London, UK • Remote Friendly</p>
+                    <p class="text-energy-glow text-xs mt-2 font-bold">$140k - $190k</p>
+                </div>
+            </div>
+            <div class="glass-card p-5 rounded-xl flex items-start gap-4">
+                <div class="w-12 h-12 bg-white/10 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-energy-glow">XOM</div>
+                <div>
+                    <h4 class="font-bold">Project Manager (LNG)</h4>
+                    <p class="text-xs text-gray-500">Doha, Qatar • On-site</p>
+                    <p class="text-energy-glow text-xs mt-2 font-bold">$160k - $210k</p>
+                </div>
+            </div>
+            <div class="glass-card p-5 rounded-xl flex items-start gap-4">
+                <div class="w-12 h-12 bg-white/10 rounded-lg flex-shrink-0 flex items-center justify-center font-bold text-energy-glow">TSLA</div>
+                <div>
+                    <h4 class="font-bold">Grid Storage Engineer</h4>
+                    <p class="text-xs text-gray-500">Palo Alto, CA • On-site</p>
+                    <p class="text-energy-glow text-xs mt-2 font-bold">$130k - $175k</p>
+                </div>
+            </div>
+        </div>
+        <button class="w-full py-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 font-bold transition">Browse 19,000+ Jobs</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-20 px-6 bg-black/40">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-4xl font-orbitron font-bold mb-4">Sector Performance</h2>
+            <p class="text-gray-400">Comparing 6-month volatility between fossil fuels and renewables.</p>
+        </div>
+        <div class="glass-card p-8 rounded-3xl">
+            <canvas id="commoditiesChart" height="100"></canvas>
+        </div>
+    </div>
+  </section>
+
+  <section class="py-24 px-6">
+    <div class="max-w-4xl mx-auto glass-card p-12 rounded-[3rem] text-center border-energy-glow/20">
+        <h2 class="text-3xl font-orbitron font-bold mb-6">Website Health Monitor</h2>
+        <p class="text-gray-400 mb-8">Run a diagnostic on your connection to our global data nodes.</p>
+        <div class="flex flex-wrap justify-center gap-8">
+            <div class="text-center">
+                <div class="text-energy-glow font-orbitron text-2xl">24ms</div>
+                <div class="text-xs text-gray-500 uppercase tracking-widest mt-1">Latency</div>
+            </div>
+            <div class="text-center">
+                <div class="text-green-500 font-orbitron text-2xl">99.9%</div>
+                <div class="text-xs text-gray-500 uppercase tracking-widest mt-1">Uptime</div>
+            </div>
+            <div class="text-center">
+                <div class="text-energy-glow font-orbitron text-2xl">SSL-256</div>
+                <div class="text-xs text-gray-500 uppercase tracking-widest mt-1">Security</div>
+            </div>
+        </div>
+    </div>
+  </section>
+  <!-- Website Tester Section -->
+<section class="py-20 px-6 bg-black/30">
+  <div class="max-w-5xl mx-auto" data-aos="fade-up">
+    <h2 class="text-5xl font-orbitron font-bold mb-10 text-center text-energy-glow glow-text">
+      Free Website Tester
+    </h2>
+    <p class="text-xl text-center text-gray-300 mb-12 max-w-3xl mx-auto">
+      Test your site for performance, mobile-friendliness, accessibility & more — before paying a developer. Powered by Google Lighthouse.
+    </p>
+
+    <div class="glass-card p-8 rounded-3xl max-w-4xl mx-auto">
+      <form id="testerForm" class="flex flex-col md:flex-row gap-4">
+        <input 
+          type="url" 
+          id="testUrl" 
+          placeholder="https://yourwebsite.com" 
+          required 
+          class="flex-1 bg-slate-900 border border-blue-900/50 rounded-xl px-6 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-energy-glow focus:ring-2 focus:ring-energy-glow/30"
+        />
+        <select id="strategy" class="bg-slate-900 border border-blue-900/50 rounded-xl px-6 py-4 text-white">
+          <option value="mobile">Mobile</option>
+          <option value="desktop">Desktop</option>
+        </select>
+        <button 
+          type="submit" 
+          class="bg-gradient-to-r from-energy-blue to-sky-600 hover:from-sky-500 hover:to-blue-600 text-white font-semibold px-10 py-4 rounded-xl shadow-lg hover:shadow-2xl transition transform hover:scale-105 flex items-center gap-3"
+        >
+          <span>Run Test</span>
+          <svg class="animate-spin hidden h-5 w-5" id="loadingSpinner" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+        </button>
+      </form>
+
+      <!-- Results Area -->
+      <div id="results" class="mt-12 hidden">
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+          <div class="glass-card p-6 text-center">
+            <h4 class="text-lg font-semibold text-gray-400 mb-2">Performance</h4>
+            <p id="perfScore" class="text-5xl font-bold text-green-400">—</p>
+          </div>
+          <div class="glass-card p-6 text-center">
+            <h4 class="text-lg font-semibold text-gray-400 mb-2">Accessibility</h4>
+            <p id="a11yScore" class="text-5xl font-bold text-blue-400">—</p>
+          </div>
+          <div class="glass-card p-6 text-center">
+            <h4 class="text-lg font-semibold text-gray-400 mb-2">Best Practices</h4>
+            <p id="bestPracticesScore" class="text-5xl font-bold text-purple-400">—</p>
+          </div>
+          <div class="glass-card p-6 text-center">
+            <h4 class="text-lg font-semibold text-gray-400 mb-2">SEO</h4>
+            <p id="seoScore" class="text-5xl font-bold text-yellow-400">—</p>
+          </div>
+        </div>
+
+        <div class="glass-card p-8 rounded-2xl">
+          <h3 class="text-2xl font-semibold mb-6 text-energy-glow">Key Insights & Fixes</h3>
+          <div id="insights" class="space-y-6 text-gray-300"></div>
+        </div>
+
+        <p class="text-center text-sm text-gray-500 mt-8">
+          Results from Google PageSpeed Insights • For full report visit <a href="https://pagespeed.web.dev" target="_blank" class="text-energy-glow hover:underline">pagespeed.web.dev</a>
+        </p>
+      </div>
+
+      <div id="errorMsg" class="mt-8 text-red-400 text-center hidden"></div>
+    </div>
+  </div>
+</section>
+
+  <footer class="py-12 px-6 border-t border-white/5 bg-black/80">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+        <div class="font-orbitron font-bold text-xl">ENERGY<span class="text-energy-glow">NEX</span></div>
+        <div class="flex gap-8 text-sm text-gray-500">
+            <a href="#" class="hover:text-white">Privacy</a>
+            <a href="#" class="hover:text-white">API Docs</a>
+            <a href="#" class="hover:text-white">Contact</a>
+        </div>
+        <div class="text-sm text-gray-600">© 2026 EnergyNex Infrastructure.</div>
+    </div>
+  </footer>
+
+  <script>
+    AOS.init({ duration: 800, once: true });
+
+    // Corrected live price updates using template literals
+    function updatePrices() {
+      const oil = (78 + Math.random() * 2 - 1).toFixed(2);
+      const gas = (3.15 + Math.random() * 0.3 - 0.15).toFixed(2);
+      document.getElementById('oil-price').textContent = `$${oil}`;
+      document.getElementById('gas-price').textContent = `$${gas}`;
+    }
+    setInterval(updatePrices, 5000);
+
+    // Commodities Chart
+    const ctx = document.getElementById('commoditiesChart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb'],
+        datasets: [{
+          label: 'WTI Crude Index',
+          data: [68, 72, 75, 70, 78, 81],
+          borderColor: '#0ea5e9',
+          borderWidth: 3,
+          backgroundColor: 'rgba(14, 165, 233, 0.1)',
+          tension: 0.4,
+          fill: true,
+          pointRadius: 0
+        }, {
+          label: 'Renewable ETF',
+          data: [85, 82, 88, 92, 90, 95],
+          borderColor: '#10b981',
+          borderWidth: 3,
+          backgroundColor: 'rgba(16, 185, 129, 0.1)',
+          tension: 0.4,
+          fill: true,
+          pointRadius: 0
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { 
+            legend: { position: 'bottom', labels: { color: '#94a3b8', font: { family: 'Inter' } } } 
+        },
+        scales: {
+          x: { grid: { display: false }, ticks: { color: '#475569' } },
+          y: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#475569' } }
+        }
+      }
+    });
+    Document.getElementById('testerForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  const urlInput = document.getElementById('testUrl').value.trim();
+  const strategy = document.getElementById('strategy').value;
+  const apiKey = 'YOUR_PAGE_SPEED_API_KEY_HERE';  // ← Paste your key here (keep secret in production!)
+
+  if (!urlInput) return;
+
+  // Show loading
+  document.getElementById('loadingSpinner').classList.remove('hidden');
+  document.getElementById('results').classList.add('hidden');
+  document.getElementById('errorMsg').classList.add('hidden');
+
+  try {
+    const apiUrl = `https://www.googleapis.com/pagespeedonline/v5/runPagespeed?url=\( {encodeURIComponent(urlInput)}&strategy= \){strategy}&key=${apiKey}`;
+    
+    const response = await fetch(apiUrl);
+    if (!response.ok) throw new Error('API request failed');
+
+    const data = await response.json();
+    const lighthouse = data.lighthouseResult;
+
+    // Display scores (0-100)
+    document.getElementById('perfScore').textContent = lighthouse.categories.performance.score * 100;
+    document.getElementById('a11yScore').textContent = lighthouse.categories.accessibility.score * 100;
+    document.getElementById('bestPracticesScore').textContent = lighthouse.categories['best-practices'].score * 100;
+    document.getElementById('seoScore').textContent = lighthouse.categories.seo.score * 100;
+
+    // Color code scores
+    const colorScores = (el, score) => {
+      el.className = score >= 90 ? 'text-green-400' : score >= 50 ? 'text-yellow-400' : 'text-red-400';
+    };
+    colorScores(document.getElementById('perfScore'), lighthouse.categories.performance.score * 100);
+    // Repeat for others...
+
+    // Show top issues (example: first few audits)
+    const insightsDiv = document.getElementById('insights');
+    insightsDiv.innerHTML = '';
+    const topAudits = Object.values(lighthouse.audits).filter(a => a.score < 1 && a.score !== null).slice(0, 6);
+    topAudits.forEach(audit => {
+      const div = document.createElement('div');
+      div.className = 'border-l-4 border-red-500 pl-4';
+      div.innerHTML = `
+        <h4 class="font-semibold">${audit.title}</h4>
+        <p class="text-sm">${audit.description.replace(/\[Learn more\].*/, '')}</p>
+      `;
+      insightsDiv.appendChild(div);
+    });
+
+    document.getElementById('results').classList.remove('hidden');
+  } catch (err) {
+    document.getElementById('errorMsg').textContent = `Error: ${err.message}. Try again or check your API key/URL.`;
+    document.getElementById('errorMsg').classList.remove('hidden');
+  } finally {
+    document.getElementById('loadingSpinner').classList.add('hidden');
+  }
+});
+  </script>
 </body>
 </html>
