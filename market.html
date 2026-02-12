@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EnergyNex Markets - Live Oil, Gas, Stocks & Commodities</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { /* same as previous pages */ }
+  </script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    /* Reuse same styles: body bg, map-bg, glass-card, glow-text */
+    body { background: linear-gradient(to bottom, #0a0e17, #111827); color: #e2e8f0; }
+    .map-bg { position: fixed; inset: 0; background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover; opacity: 0.12; z-index: -2; filter: brightness(0.6); }
+    .glass-card { background: rgba(15, 23, 42, 0.65); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.15); transition: all 0.4s; }
+    .glass-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(14, 165, 233, 0.25); border-color: rgba(56, 189, 248, 0.4); }
+    .glow-text { text-shadow: 0 0 20px rgba(14, 165, 233, 0.7); }
+  </style>
+</head>
+<body class="min-h-screen relative">
+
+  <div class="map-bg"></div>
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full z-50 bg-black/40 backdrop-blur-xl border-b border-blue-900/30">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <span class="text-3xl font-orbitron font-bold text-energy-glow glow-text">EnergyNex</span>
+      <div class="hidden md:flex gap-8">
+        <a href="index.html" class="hover:text-energy-glow">Home</a>
+        <a href="news.html" class="hover:text-energy-glow">News</a>
+        <a href="#" class="text-energy-glow font-semibold">Markets</a>
+        <a href="career.html" class="hover:text-energy-glow">Careers</a>
+        <button class="bg-energy-blue hover:bg-sky-600 px-6 py-2.5 rounded-full">Join Now</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="pt-32 pb-16 px-6 text-center">
+    <h1 class="text-5xl md:text-7xl font-orbitron font-bold glow-text">Live Markets & Commodities</h1>
+    <p class="text-xl text-gray-300 mt-6">Real-time oil, gas, energy stocks, and global insights — updated continuously.</p>
+  </section>
+
+  <!-- Live Prices Widgets -->
+  <section class="px-6 pb-20">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div class="glass-card p-8 rounded-3xl text-center" data-aos="fade-up">
+        <h3 class="text-xl font-semibold mb-4">WTI Crude Oil</h3>
+        <p id="wti-price" class="text-5xl font-bold text-green-400">$78.65</p>
+        <p class="text-green-500 mt-2">+1.8%</p>
+      </div>
+      <div class="glass-card p-8 rounded-3xl text-center" data-aos="fade-up" data-aos-delay="100">
+        <h3 class="text-xl font-semibold mb-4">Brent Crude</h3>
+        <p id="brent-price" class="text-5xl font-bold text-yellow-400">$82.10</p>
+        <p class="text-red-500 mt-2">-0.4%</p>
+      </div>
+      <div class="glass-card p-8 rounded-3xl text-center" data-aos="fade-up" data-aos-delay="200">
+        <h3 class="text-xl font-semibold mb-4">Henry Hub Nat Gas</h3>
+        <p id="gas-price" class="text-5xl font-bold text-blue-400">$3.28</p>
+        <p class="text-green-500 mt-2">+2.1%</p>
+      </div>
+      <div class="glass-card p-8 rounded-3xl text-center" data-aos="fade-up" data-aos-delay="300">
+        <h3 class="text-xl font-semibold mb-4">Energy Sector ETF (XLE)</h3>
+        <p id="xle-price" class="text-5xl font-bold text-purple-400">$92.45</p>
+        <p class="text-green-500 mt-2">+1.2%</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Charts Section -->
+  <section class="px-6 pb-20">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10">
+      <div class="glass-card p-8 rounded-3xl" data-aos="fade-right">
+        <h2 class="text-3xl font-orbitron mb-6 text-energy-glow">Oil Price Trend (30 Days)</h2>
+        <canvas id="oilChart" height="200"></canvas>
+      </div>
+      <div class="glass-card p-8 rounded-3xl" data-aos="fade-left">
+        <h2 class="text-3xl font-orbitron mb-6 text-energy-glow">Natural Gas Volatility</h2>
+        <canvas id="gasChart" height="200"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- Insights Cards -->
+  <section class="px-6 pb-20 bg-black/20">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+      <div class="glass-card p-8 rounded-3xl" data-aos="fade-up">
+        <h3 class="text-2xl mb-4">Market Movers</h3>
+        <ul class="space-y-4 text-gray-300">
+          <li>ExxonMobil +3.2%</li>
+          <li>Chevron -1.1%</li>
+          <li>Shell +2.8%</li>
+        </ul>
+      </div>
+      <!-- Add more insight cards -->
+    </div>
+  </section>
+
+  <!-- Footer (reuse from previous) -->
+  <footer class="py-12 px-6 bg-black/60 text-center text-gray-500">
+    <p>&copy; 2026 EnergyNex. All rights reserved.</p>
+  </footer>
+
+  <script>
+    AOS.init({ duration: 1000, once: true });
+
+    // Fake live updates (replace with real API fetch)
+    function updatePrices() {
+      document.getElementById('wti-price').textContent = `$${(78 + Math.random()*3 -1.5).toFixed(2)}`;
+      // etc.
+    }
+    setInterval(updatePrices, 10000);
+
+    // Charts
+    new Chart(document.getElementById('oilChart'), {
+      type: 'line',
+      data: { labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], datasets: [{ label: 'WTI ($)', data: [72,75,78,82,79,81], borderColor: '#38bdf8', tension: 0.4 }] },
+      options: { scales: { y: { beginAtZero: false } } }
+    });
+    // Similar for gasChart
+  </script>
+</body>
+</html>

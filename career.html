@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EnergyNex Careers - Premium Global Jobs in Energy, Oil, Banking & More</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter'], orbitron: ['Orbitron'] },
+          colors: { 'energy-blue': '#0ea5e9', 'energy-glow': '#38bdf8', 'dark-bg': '#0a0e17', 'card-bg': 'rgba(15, 23, 42, 0.75)' },
+          animation: { 'glow-pulse': 'glowPulse 5s ease-in-out infinite' },
+          keyframes: { glowPulse: { '0%, 100%': { boxShadow: '0 0 25px rgba(14, 165, 233, 0.35)' }, '50%': { boxShadow: '0 0 50px rgba(14, 165, 233, 0.7)' } } }
+        }
+      }
+    }
+  </script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <style>
+    body { background: linear-gradient(to bottom, #0a0e17, #111827); color: #e2e8f0; }
+    .map-bg { position: fixed; inset: 0; background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; opacity: 0.1; z-index: -2; filter: brightness(0.5); }
+    .glass-card { background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(16px); border: 1px solid rgba(56, 189, 248, 0.2); transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    .glass-card:hover { transform: translateY(-12px) scale(1.02); box-shadow: 0 30px 60px -15px rgba(14, 165, 233, 0.4); border-color: rgba(56, 189, 248, 0.5); }
+    .glow-text { text-shadow: 0 0 25px rgba(14, 165, 233, 0.8); }
+  </style>
+</head>
+<body class="min-h-screen relative">
+
+  <div class="map-bg"></div>
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full z-50 bg-black/50 backdrop-blur-2xl border-b border-blue-900/40">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+      <span class="text-4xl font-orbitron font-bold text-energy-glow glow-text">EnergyNex</span>
+      <div class="hidden md:flex items-center gap-10">
+        <a href="index.html" class="hover:text-energy-glow transition">Home</a>
+        <a href="news.html" class="hover:text-energy-glow transition">News</a>
+        <a href="markets.html" class="hover:text-energy-glow transition">Markets</a>
+        <a href="#" class="text-energy-glow font-semibold">Careers</a>
+        <button class="bg-gradient-to-r from-energy-blue to-sky-600 hover:from-sky-500 hover:to-blue-600 text-white px-8 py-3 rounded-full font-medium transition shadow-lg">Join / Post Job</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="pt-40 pb-24 px-6 text-center relative">
+    <div class="max-w-6xl mx-auto">
+      <h1 class="text-5xl md:text-7xl font-orbitron font-bold mb-8 leading-tight glow-text animate-pulse">
+        Unlock Premium Careers<br/>in Global Energy & Finance
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-12">
+        Exclusive opportunities in Oil & Gas, Banking, Renewables — from Lagos to Houston, London to Dubai. Connect with top employers worldwide.
+      </p>
+      <div class="flex flex-wrap justify-center gap-6">
+        <button class="bg-gradient-to-r from-green-600 to-emerald-700 hover:from-emerald-600 hover:to-green-700 text-white px-12 py-6 rounded-full text-xl font-semibold shadow-2xl hover:shadow-glow transition transform hover:scale-105">
+          Browse Jobs
+        </button>
+        <button class="border-2 border-energy-glow text-energy-glow hover:bg-energy-glow/20 px-12 py-6 rounded-full text-xl font-semibold transition">
+          Post a Job (Free Trial)
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="px-6 pb-20">
+    <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div class="glass-card p-10 rounded-3xl" data-aos="fade-up">
+        <p class="text-5xl font-bold text-energy-glow">21,847</p>
+        <p class="text-lg mt-3 text-gray-400">Active Listings</p>
+      </div>
+      <div class="glass-card p-10 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
+        <p class="text-5xl font-bold text-green-400">+5,200</p>
+        <p class="text-lg mt-3 text-gray-400">New This Month</p>
+      </div>
+      <div class="glass-card p-10 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
+        <p class="text-5xl font-bold text-purple-400">92</p>
+        <p class="text-lg mt-3 text-gray-400">Countries Covered</p>
+      </div>
+      <div class="glass-card p-10 rounded-3xl" data-aos="fade-up" data-aos-delay="300">
+        <p class="text-5xl font-bold text-yellow-400">4.8/5</p>
+        <p class="text-lg mt-3 text-gray-400">Employer Rating</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Advanced Filters -->
+  <section class="px-6 pb-16">
+    <div class="max-w-6xl mx-auto glass-card p-8 rounded-3xl">
+      <div class="grid md:grid-cols-4 gap-6">
+        <input type="text" placeholder="Job title, company, keyword..." class="bg-slate-900 border border-blue-900/50 rounded-xl px-6 py-5 text-white placeholder-gray-500 focus:outline-none focus:border-energy-glow focus:ring-2 focus:ring-energy-glow/30"/>
+        <select class="bg-slate-900 border border-blue-900/50 rounded-xl px-6 py-5 text-white">
+          <option>Sector: All</option>
+          <option>Oil & Gas Exploration</option>
+          <option>Banking & Finance</option>
+          <option>Renewables & Sustainability</option>
+          <option>Engineering & Drilling</option>
+        </select>
+        <select class="bg-slate-900 border border-blue-900/50 rounded-xl px-6 py-5 text-white">
+          <option>Location: Worldwide</option>
+          <option>Nigeria / Lagos</option>
+          <option>United States</option>
+          <option>Europe / UK</option>
+          <option>Middle East</option>
+        </select>
+        <select class="bg-slate-900 border border-blue-900/50 rounded-xl px-6 py-5 text-white">
+          <option>Type: All</option>
+          <option>Full-Time</option>
+          <option>Contract</option>
+          <option>Remote</option>
+          <option>Hybrid</option>
+        </select>
+      </div>
+      <button class="mt-6 w-full md:w-auto bg-energy-glow hover:bg-sky-400 text-black font-bold px-12 py-5 rounded-full transition shadow-xl">Search Opportunities</button>
+    </div>
+  </section>
+
+  <!-- Featured Jobs Grid -->
+  <section class="px-6 pb-24">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-4xl font-orbitron font-bold mb-12 text-center text-energy-glow glow-text">Featured Premium Opportunities</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Job Card 1 -->
+        <div class="glass-card rounded-3xl overflow-hidden hover:border-energy-glow/60 transition group" data-aos="fade-up">
+          <div class="p-8">
+            <div class="flex items-center gap-4 mb-6">
+              <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-sky-700 rounded-2xl flex items-center justify-center text-white text-2xl font-bold">TT</div>
+              <div>
+                <h4 class="text-xl font-bold">TotalEnergies</h4>
+                <p class="text-gray-400 text-sm">Global Leader</p>
+              </div>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 group-hover:text-energy-glow transition">Senior Reservoir Engineer</h3>
+            <p class="text-gray-300 mb-6">Lagos, Nigeria • $180k–$250k + Bonus • On-site/Relocation</p>
+            <div class="flex flex-wrap gap-3 mb-6">
+              <span class="bg-blue-900/50 text-blue-300 px-4 py-1.5 rounded-full text-sm">Oil & Gas</span>
+              <span class="bg-green-900/50 text-green-300 px-4 py-1.5 rounded-full text-sm">Full-Time</span>
+              <span class="bg-purple-900/50 text-purple-300 px-4 py-1.5 rounded-full text-sm">Senior Level</span>
+            </div>
+            <button class="w-full bg-gradient-to-r from-green-600 to-emerald-700 hover:from-emerald-600 hover:to-green-700 text-white py-4 rounded-xl font-semibold transition">Quick Apply</button>
+          </div>
+        </div>
+
+        <!-- Add 5–8 more similar premium cards with variations (e.g., Investment Banker in London, Drilling Supervisor in UAE, Renewables PM in US) -->
+
+      </div>
+
+      <div class="text-center mt-16">
+        <button class="bg-gradient-to-r from-energy-blue to-sky-600 hover:from-sky-500 hover:to-blue-600 text-white px-16 py-6 rounded-full text-xl font-bold shadow-2xl hover:shadow-glow transition transform hover:scale-105">
+          View All 21,847+ Jobs →
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Employers Carousel / Banner -->
+  <section class="px-6 pb-24 bg-black/30">
+    <div class="max-w-7xl mx-auto text-center">
+      <h2 class="text-4xl font-orbitron font-bold mb-12 text-energy-glow">Trusted by Leading Employers</h2>
+      <div class="grid grid-cols-3 md:grid-cols-6 gap-8 opacity-80">
+        <!-- Placeholder logos - replace with real images -->
+        <div class="bg-slate-900/50 p-6 rounded-2xl flex items-center justify-center h-24"><span class="text-3xl font-bold text-gray-500">Shell</span></div>
+        <div class="bg-slate-900/50 p-6 rounded-2xl flex items-center justify-center h-24"><span class="text-3xl font-bold text-gray-500">Chevron</span></div>
+        <div class="bg-slate-900/50 p-6 rounded-2xl flex items-center justify-center h-24"><span class="text-3xl font-bold text-gray-500">J.P. Morgan</span></div>
+        <!-- More... -->
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-16 px-6 bg-black/70 border-t border-blue-900/40 text-center text-gray-500">
+    <p>© 2026 EnergyNex – Connecting Global Talent with Elite Opportunities</p>
+    <div class="mt-6 flex justify-center gap-10">
+      <a href="#" class="hover:text-energy-glow">Privacy</a>
+      <a href="#" class="hover:text-energy-glow">Terms</a>
+      <a href="#" class="hover:text-energy-glow">Contact Support</a>
+    </div>
+  </footer>
+
+  <script>
+    AOS.init({ duration: 1200, once: true, offset: 100 });
+  </script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>EnergyNex News - Global Energy, Oil, Markets & Insights</title>
+  <meta name="description" content="Latest world news, oil & energy updates, stock market insights, and global finance coverage."/>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet"/>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'], orbitron: ['Orbitron', 'sans-serif'] },
+          colors: { 'energy-blue': '#0ea5e9', 'energy-glow': '#38bdf8', 'dark-bg': '#0a0e17', 'card-bg': 'rgba(15, 23, 42, 0.7)' },
+          animation: { 'glow-pulse': 'glowPulse 4s ease-in-out infinite', 'float': 'float 6s ease-in-out infinite' },
+          keyframes: {
+            glowPulse: { '0%, 100%': { boxShadow: '0 0 20px rgba(14, 165, 233, 0.3)' }, '50%': { boxShadow: '0 0 40px rgba(14, 165, 233, 0.6)' } },
+            float: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- AOS Animations -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <style>
+    body { background: linear-gradient(to bottom, #0a0e17, #111827); color: #e2e8f0; overflow-x: hidden; }
+    .map-bg { position: fixed; inset: 0; background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; opacity: 0.12; z-index: -2; filter: brightness(0.6) contrast(1.2); }
+    .glass-card { background: rgba(15, 23, 42, 0.65); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.15); transition: all 0.4s ease; }
+    .glass-card:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(14, 165, 233, 0.25); border-color: rgba(56, 189, 248, 0.4); }
+    .glow-text { text-shadow: 0 0 20px rgba(14, 165, 233, 0.7); }
+    .news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; }
+  </style>
+</head>
+<body class="min-h-screen relative">
+
+  <!-- Background Map -->
+  <div class="map-bg"></div>
+
+  <!-- Navbar (same as homepage) -->
+  <nav class="fixed top-0 w-full z-50 bg-black/40 backdrop-blur-xl border-b border-blue-900/30">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="text-3xl font-orbitron font-bold text-energy-glow glow-text">EnergyNex</span>
+      </div>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="hover:text-energy-glow transition">Home</a>
+        <a href="#" class="text-energy-glow font-semibold">News</a>
+        <a href="market.html" class="hover:text-energy-glow transition">Markets</a>
+        <a href="career.html" class="hover:text-energy-glow transition">Careers</a>
+        <a href="#" class="hover:text-energy-glow transition">Post Job</a>
+        <button class="bg-energy-blue hover:bg-sky-600 text-white px-6 py-2.5 rounded-full font-medium transition">Join Now</button>
+      </div>
+      <button class="md:hidden text-3xl">☰</button>
+    </div>
+  </nav>
+
+  <!-- Page Header / Hero -->
+  <section class="pt-32 pb-16 px-6 text-center relative">
+    <div class="max-w-5xl mx-auto">
+      <h1 class="text-5xl md:text-7xl font-orbitron font-bold mb-6 leading-tight glow-text">
+        Latest <span class="text-energy-glow">Energy & Global</span> News
+      </h1>
+      <p class="text-xl md:text-2xl text-gray-300 mb-10">
+        Real-time updates on oil prices, energy markets, stock movements, and worldwide developments.
+      </p>
+    </div>
+  </section>
+
+  <!-- Categories Filter -->
+  <section class="px-6 pb-12">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-center gap-4">
+      <button class="bg-energy-blue/30 hover:bg-energy-blue/50 text-white px-6 py-3 rounded-full font-medium transition">All</button>
+      <button class="glass-card px-6 py-3 rounded-full font-medium hover:border-energy-glow/50 transition">World</button>
+      <button class="glass-card px-6 py-3 rounded-full font-medium hover:border-energy-glow/50 transition">Oil & Energy</button>
+      <button class="glass-card px-6 py-3 rounded-full font-medium hover:border-energy-glow/50 transition">Stocks & Markets</button>
+      <button class="glass-card px-6 py-3 rounded-full font-medium hover:border-energy-glow/50 transition">Business</button>
+      <button class="glass-card px-6 py-3 rounded-full font-medium hover:border-energy-glow/50 transition">Tech</button>
+    </div>
+  </section>
+
+  <!-- Featured Article (Hero Card) -->
+  <section class="px-6 pb-20">
+    <div class="max-w-6xl mx-auto">
+      <div class="glass-card overflow-hidden rounded-3xl shadow-2xl" data-aos="zoom-in">
+        <div class="md:flex">
+          <div class="md:w-3/5">
+            <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Featured News" class="w-full h-96 md:h-full object-cover"/>
+          </div>
+          <div class="p-10 flex flex-col justify-center">
+            <span class="text-energy-glow font-semibold uppercase tracking-wide mb-4">Breaking • Oil & Energy</span>
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">OPEC+ Extends Cuts: Oil Prices Surge 8% Amid Geopolitical Tensions</h2>
+            <p class="text-gray-300 text-lg mb-8">Analysts predict sustained high prices through 2026 as supply constraints meet rising demand in Asia and Africa...</p>
+            <div class="flex items-center gap-6 text-sm text-gray-400">
+              <span>Feb 12, 2026</span>
+              <span>• 8 min read</span>
+            </div>
+            <a href="#" class="mt-8 inline-block bg-energy-glow hover:bg-sky-400 text-black font-semibold px-10 py-4 rounded-full transition transform hover:scale-105">Read Full Article →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- News Grid -->
+  <section class="px-6 pb-20">
+    <div class="max-w-7xl mx-auto news-grid">
+      <!-- Article Card Example (repeat 6–12 times) -->
+      <div class="glass-card rounded-2xl overflow-hidden hover:border-energy-glow/50 transition" data-aos="fade-up">
+        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff9e0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="News" class="w-full h-48 object-cover"/>
+        <div class="p-6">
+          <span class="text-energy-blue text-sm font-semibold">Stocks • Markets</span>
+          <h3 class="text-2xl font-bold mt-3 mb-4 line-clamp-2">Energy Stocks Rally as Renewables Hit Record Investments in Q1 2026</h3>
+          <p class="text-gray-400 mb-6 line-clamp-3">Solar and wind sectors lead gains; top performers include NextEra and Enphase...</p>
+          <div class="flex justify-between items-center text-sm text-gray-500">
+            <span>Feb 11, 2026</span>
+            <span>5 min read</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Duplicate similar cards here for more articles -->
+      <!-- Example 2 -->
+      <div class="glass-card rounded-2xl overflow-hidden hover:border-energy-glow/50 transition" data-aos="fade-up" data-aos-delay="100">
+        <img src="https://images.unsplash.com/photo-1502920514313-52581002a659?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="News" class="w-full h-48 object-cover"/>
+        <div class="p-6">
+          <span class="text-yellow-400 text-sm font-semibold">World • Geopolitics</span>
+          <h3 class="text-2xl font-bold mt-3 mb-4 line-clamp-2">Middle East Tensions Disrupt LNG Shipments; Europe Braces for Winter</h3>
+          <p class="text-gray-400 mb-6 line-clamp-3">Supply chain alerts issued as key routes face risks...</p>
+          <div class="flex justify-between items-center text-sm text-gray-500">
+            <span>Feb 10, 2026</span>
+            <span>7 min read</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add 4–10 more cards similarly for a full grid -->
+    </div>
+
+    <!-- Load More Button -->
+    <div class="text-center mt-16">
+      <button class="bg-gradient-to-r from-energy-blue to-sky-600 hover:from-sky-500 hover:to-blue-600 text-white font-semibold px-12 py-5 rounded-full shadow-xl hover:shadow-2xl transition transform hover:scale-105">
+        Load More News
+      </button>
+    </div>
+  </section>
+
+  <!-- Footer (same as homepage) -->
+  <footer class="py-12 px-6 bg-black/60 border-t border-blue-900/30 text-center text-gray-500">
+    <p>&copy; 2026 EnergyNex. All rights reserved.</p>
+    <div class="mt-4 flex justify-center gap-8">
+      <a href="#" class="hover:text-energy-glow">Privacy Policy</a>
+      <a href="#" class="hover:text-energy-glow">Terms of Service</a>
+      <a href="#" class="hover:text-energy-glow">Contact</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    AOS.init({ duration: 1000, once: true });
+  </script>
+</body>
+</html>
